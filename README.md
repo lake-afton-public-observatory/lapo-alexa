@@ -41,6 +41,26 @@ const WidgetHandler = {
 
 ```
 
+Then make sure to modify this section and add in the new handler you wrote:
+
+```
+/* LAMBDA SETUP */
+exports.handler = skillBuilder
+  .addRequestHandlers(
+    LaunchRequestHandler,
+    OpenClosedHandler,
+    PricingHandler,
+    ScheduleHandler,
+    WidgetHandler,
+    HelpHandler,
+    RepeatHandler,
+    ExitHandler,
+    SessionEndedRequestHandler
+  )
+  .addErrorHandlers(ErrorHandler)
+  .lambda()
+  ```
+
 Then you would submit (in the PR text, or something) a list of phrases you think should trigger this Intent, such as:
 
 * "what widgets do you have"
